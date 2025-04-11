@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="LogoSTEP.png" type="image/png" />
+    <title>STEP - Login Motorista</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="login_motorista">
+    
+    <header class="header">
+      <h1 class="titulo">Login - Motorista</h1>
+    </header>
+    
+    <main>
+      <form action="tela_transportes_disponiveis.html" class="formulario">
+        <div class="campo">
+          <label for="cnpj" class="label">CNPJ:</label>
+          <input type="text" id="cnpj" name="cnpj" class="input" placeholder="Digite seu CNPJ" />
+        </div>
+        <div class="campo">
+          <label for="senha" class="label">Senha:</label>
+          <input type="password" id="senha" name="senha" class="input" placeholder="Digite sua senha" />
+        </div>
+        <div class="campo">
+          <button type="submit" id="btn-login-motorista" class="botao">Login</button>
+        </div>
+      </form>
+      <p class="links">
+        <a href="cadastro_motorista.html" class="link">Cadastre-se</a> |
+        <a href="esqueci_senha_motorista.html" class="link">Esqueci minha senha</a>
+      </p>
+    </main>
+   
+    <footer class="rodape">
+        <p>STEP - Sistema de transporte prático</p>
+        <p>Powered by Unileste</p>
+        <p>Contato: step@gmail.com</p>
+    </footer>
+  </body>
+</html>
