@@ -4,7 +4,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Roboto', sans-serif; /* Changed to match main style */
 }
 
 body {
@@ -13,18 +13,20 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: rgba(0,0,0,0.1);
+  background-color: #5270FF; /* Changed to match main site background */
+  color: #fff; /* Added to match main site text color */
 }
 
 button {
   cursor: pointer;
+  border: none; /* Added to match main style */
 }
 
 .container {
   width: 90%;
   height: 80%;
-  border-radius: 10px;
-  background: white;
+  border-radius: 15px; /* Changed to match main style's rounded corners */
+  background: rgb(118, 141, 255); /* Changed to match the form background color */
 }
 
 .header {
@@ -32,13 +34,23 @@ button {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin: auto 12px;
+  background-color: #3B59B8; /* Changed to match header color */
+  border-radius: 15px 15px 0 0; /* Round only top corners */
+  padding: 0 20px;
+  width: 100%;
 }
 
 .header span {
   font-weight: 900;
-  font-size: 20px;
+  font-size: 22px;
   word-break: break-all;
+  color: #fff; /* Ensuring text is visible on dark background */
+}
+
+.header-buttons {
+  display: flex;
+  gap: 10px;
+  align-items: center;
 }
 
 #new {
@@ -47,24 +59,41 @@ button {
   border-radius: 5px;
   border: none;
   color: white;
-  background-color: rgb(57, 57, 226);
+  background-color: #5270FF; /* Changed to match main button color */
+  font-weight: bold; /* Added to match main style */
+}
+
+.btn-home {
+  font-size: 16px;
+  padding: 8px;
+  border-radius: 5px;
+  text-decoration: none;
+  color: white;
+  background-color: #5270FF; /* Changed to match main button color */
+  display: inline-block;
+  transition: background-color 0.3s;
+  font-weight: bold; /* Added to match main style */
+}
+
+.btn-home:hover {
+  background-color: #3B59B8; /* Darker blue on hover */
 }
 
 .divTable {
   padding: 10px;
   width: auto; 
-  height:inherit; 
-  overflow:auto;
+  height: calc(100% - 70px);
+  overflow: auto;
 }
 
 .divTable::-webkit-scrollbar {
   width: 12px;
-  background-color: whitesmoke; 
+  background-color: rgba(255, 255, 255, 0.3); /* Lighter scrollbar background */
 }
 
 .divTable::-webkit-scrollbar-thumb {
   border-radius: 10px;
-  background-color: darkgray; 
+  background-color: #3B59B8; /* Changed to match header/footer */
 }
 
 table {
@@ -75,23 +104,27 @@ table {
 }
 
 thead {
-  background-color: whitesmoke;
+  background-color: #3B59B8; /* Changed to match header/footer */
 }
 
 tr {
-  border-bottom: 1px solid rgb(238, 235, 235)!important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2) !important; /* Lighter border for visibility */
 }
 
 tbody tr td {
   vertical-align: text-top;
-  padding: 6px;
+  padding: 8px;
   max-width: 50px;
+  color: #fff; /* Ensuring text is visible */
+  font-weight: bold; /* Added bold to make data more visible */
 }
 
 thead tr th {
-  padding: 5px;
+  padding: 10px;
   text-align: start;
   margin-bottom: 50px;
+  color: #fff; /* Ensuring text is visible */
+  font-weight: bold;
 }
 
 tbody tr {
@@ -107,6 +140,20 @@ tbody tr td.acao {
   text-align: center;
 }
 
+/* Table hover effect for better readability */
+tbody tr:hover {
+  background-color: rgba(59, 89, 184, 0.3);
+}
+
+/* Style for the tipo-usuario spans to make them more prominent */
+.tipo-usuario {
+  font-size: 0.9rem;
+  font-weight: bold;
+  padding: 4px 8px;
+  border-radius: 4px;
+  display: inline-block;
+}
+
 @media (max-width: 700px) {
   body {
     font-size: 10px;
@@ -119,6 +166,15 @@ tbody tr td.acao {
   #new {
     padding: 5px;
     font-size: 10px;
+  }
+  
+  .btn-home {
+    padding: 5px;
+    font-size: 10px;
+  }
+
+  .header-buttons {
+    gap: 5px;
   }
 
   thead tr th.acao {
@@ -160,37 +216,40 @@ tbody tr td.acao {
   flex-direction: column;
   align-items: center;
   padding: 40px;
-  background-color: white;
-  border-radius: 10px;
+  background-color: rgb(118, 141, 255); /* Changed to match form background */
+  border-radius: 15px; /* Changed to match main style's rounded corners */
   width: 50%;
+  color: #fff; /* Ensuring text is visible */
 }
 
 .modal label {
   font-size: 14px;
   width: 100%;
+  font-weight: bold; /* Added to match main style */
 }
 
-.modal input {
+.modal input, .modal select {
   width: 100%;
   outline: none;
-  padding: 5px 10px; 
+  padding: 10px; /* Adjusted to match main style */
   width: 100%;
   margin-bottom: 20px;
-  border-top: none;
-  border-left: none;
-  border-right: none;
+  border: none;
+  border-radius: 8px; /* Changed to match main style */
+  font-weight: bold; /* Added to make input text more visible */
 }
 
 .modal button {
   width: 100%;
   margin: 10px auto;
   outline: none;
-  border-radius: 20px; 
-  padding: 5px 10px; 
+  border-radius: 5px; /* Changed to match main style */
+  padding: 10px; /* Adjusted to match main style */
   width: 100%;
   border: none;
-  background-color: rgb(57, 57, 226);
+  background-color: #5270FF; /* Changed to match main button color */
   color: white;
+  font-weight: bold; /* Added to match main style */
 }
 
 .active {
@@ -220,6 +279,7 @@ td button {
 
 td button i {
   font-size: 25px;
+  color: #fff; /* Ensuring icons are visible */
 }
 
 td button i:first-child {

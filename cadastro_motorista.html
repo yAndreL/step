@@ -14,33 +14,40 @@
     </header>
     
     <main>
-      <form action="login_motorista.html" class="formulario">
+      <form action="login_motorista.html" class="formulario" id="formCadastroMotorista">
         <div class="campo">
           <label for="nome" class="label">Nome:</label>
           <input type="text" id="nome" name="Nome" class="input" placeholder="Digite seu nome" />
+          <span class="erro" id="erro-nome"></span>
         </div>
         <div class="campo">
           <label for="cnpj" class="label">CNPJ:</label>
           <input type="text" id="cnpj" name="CNPJ" class="input" placeholder="Digite seu CNPJ" />
+          <span class="erro" id="erro-cnpj"></span>
         </div>
         <div class="campo">
           <label for="email" class="label">E-mail:</label>
           <input type="email" id="email" name="E-mail" class="input" placeholder="Digite seu e-mail" />
+          <span class="erro" id="erro-email"></span>
         </div>
         <div class="campo">
           <label for="telefone" class="label">Telefone:</label>
           <input type="text" id="telefone" name="Telefone" class="input" placeholder="Digite seu telefone" />
+          <span class="erro" id="erro-telefone"></span>
         </div>
         <div class="campo">
           <label for="senha" class="label">Senha:</label>
           <input type="password" id="senha" name="Senha" class="input" placeholder="Digite sua senha" />
+          <span class="erro" id="erro-senha"></span>
         </div>
         <div class="campo">
           <label for="confirmar-senha" class="label">Confirmar Senha:</label>
           <input type="password" id="confirmar-senha" name="Confirmar Senha" class="input" placeholder="Confirme sua senha" />
+          <span class="erro" id="erro-confirmar-senha"></span>
         </div>
-        <div class="campo">
+        <div class="campo botoes-form">
           <button type="submit" id="btn-cadastro-motorista" class="botao">Cadastrar</button>
+          <a href="tela_transportes_disponiveis.html" class="btn-voltar">Voltar</a>
         </div>
       </form>
     </main>
@@ -49,6 +56,8 @@
         <p>STEP - Sistema de transporte prático</p>
         <p>Powered by Unileste</p>
         <p>Contato: step@gmail.com</p>  
-      </footer>
+    </footer>
+      
+    <script src="cadastro_motorista.js"></script>
   </body>
 </html>

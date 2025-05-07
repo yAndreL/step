@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>STEP - Gerenciamento de Usuários</title>
     <link rel="stylesheet" href="styleCRUD.css">
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
 </head>
@@ -11,7 +11,10 @@
     <div class="container">
     <div class="header">
         <span>Editar Usuários</span>
-        <button onclick="openModal()" id="new">Incluir</button>
+        <div class="header-buttons">
+            <button onclick="openModal()" id="new">Incluir</button>
+            <a href="tela_transportes_disponiveis.html" class="btn-home">Página Inicial</a>
+        </div>
     </div>
 
     <div class="divTable">
@@ -20,8 +23,9 @@
                 <tr>
                     <th>Nome</th>
                     <th>Email</th>
+                    <th>Tipo</th>
+                    <th>Documento</th>
                     <th>Telefone</th>
-                    <th>Senha</th>
                     <th class="acao">Editar</th>
                     <th class="acao">Excluir</th>
                 </tr>
@@ -35,14 +39,26 @@
     <div class="modal-container">
     <div class="modal">
         <form>
+            <label for="m-tipo">Tipo de Usuário</label>
+            <select id="m-tipo" required>
+                <option value="Geral">Geral</option>
+                <option value="Aluno">Aluno</option>
+                <option value="Motorista">Motorista</option>
+            </select>
+
             <label for="m-nome">Nome</label>
             <input type="text" id="m-nome" required>
+
+            <div id="documento-container">
+                <label for="m-documento" id="m-documento-label">CPF/CNPJ</label>
+                <input type="text" id="m-documento" placeholder="Digite o documento">
+            </div>
 
             <label for="m-email">Email</label>
             <input type="email" id="m-email" required>
 
             <label for="m-telefone">Telefone</label>
-            <input type="number" id="m-telefone" required>
+            <input type="text" id="m-telefone" required>
 
             <label for="m-senha">Senha</label>
             <input type="password" id="m-senha" required>
@@ -52,6 +68,6 @@
     </div>
 </div>
 </div>
-</body>
 <script src="script.js"></script>
+</body>
 </html>

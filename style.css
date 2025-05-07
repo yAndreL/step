@@ -15,12 +15,10 @@ header {
 }
 
 body {
-
   color: #fff;
   background-color: #5270FF;
   line-height: 1.6;
 }
-
 
 a {
   color: #000000;
@@ -44,7 +42,6 @@ button {
 
 .campo {
   padding: 5%;
-
 }
 
 .formulario input[type="text"] {
@@ -94,25 +91,17 @@ button[type="submit"] {
   width: 100%;
 }
 
-
 main {
   padding: 20px;
   margin-bottom: 80px;
 }
 
-/* --------- Geral --------- */
-
-
-
-/* --------- Login - Motorista --------- */
-
-
-
+/* --------- Botões --------- */
 
 #btn-cadastro-aluno,
 #btn-cadastro-motorista,
 #btn-login-motorista
- {
+{
   display: block;            
   margin: 0 auto;            
   background-color: #5270FF;
@@ -125,9 +114,32 @@ main {
   justify-content: center;
 }
 
+/* Novo botão voltar */
+.btn-voltar {
+  display: inline-block;
+  background-color: #666;
+  color: #fff;
+  text-align: center;
+  padding: 8px 15px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  margin-top: 10px;
+  transition: background-color 0.3s;
+}
 
+.btn-voltar:hover {
+  background-color: #555;
+}
 
-/* --------- Cadastro - Motorista --------- */
+/* Estilo para o container dos botões no formulário */
+.botoes-form {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* --------- Formulários --------- */
 
 .formulario input[type="email"] {
   border-radius: 4px;
@@ -137,18 +149,7 @@ main {
   border: none;
 }
 
-
-
-/* --------- Esqueci Senha - Motorista --------- */
-
-#btn-esqueci-senha-motorista {
-  padding: 4%;
-
-}
-
-
-
-/* --------- Tela Transporte Disponíveis --------- */
+/* --------- Tela Transporte --------- */
 
 .header-transporte {
   position: relative;
@@ -181,17 +182,41 @@ main {
   margin-bottom: 4%;
 }
 
-.login-button a {
+.login-button {
   font-weight: bold;
   font-size: 1rem;
-  border: none;
   background-color: #3B59B8;
   color: white;
-  padding: 3px;
-  cursor: pointer;
+  padding: 8px 15px;
   border-radius: 4px;
+  text-decoration: none;
+  text-align: center;
+  display: inline-block;
 }
 
+.admin-button {
+  background-color: #e74c3c;
+  color: white;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 8px 12px;
+  border-radius: 5px;
+}
+
+.btn-logout {
+  background-color: #e74c3c;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  border: none;
+  cursor: pointer;
+}
 
 .form-busca input[type="text"] {
   border-radius: 4px;
@@ -224,6 +249,7 @@ main {
   display: flex;
   justify-content: center;
 }
+
 .transporte-item {
   margin-top: 5%;
   display: flex;
@@ -234,25 +260,31 @@ main {
   flex-direction: column;
 }
 
-
-
-.btn-transporte{
-  display: inline-flex;
-  padding: 3%;
+.btn-transporte {
+  display: inline-block;
+  background-color: white;
+  padding: 10px;
   font-weight: bold;
   border-radius: 5px;
   font-size: 1rem;
   margin-top: 3%;
+  text-decoration: none;
 }
 
-.btn-chat{
- 
-  display: inline-flex;
-  padding: 3%;
+.btn-chat {
+  display: inline-block;
+  background-color: white;
+  padding: 10px;
   font-weight: bold;
   border-radius: 5px;
   font-size: 1rem;
   margin-top: 3%;
+  text-decoration: none;
+}
+
+.menu-link {
+  text-decoration: none;
+  color: white;
 }
 
 .lista-transporte{
@@ -263,7 +295,6 @@ main {
 /* --------- Tela Info Transporte  --------- */
 
 .informacoes{
-
   background-color: rgb(118, 141, 255);
   padding-bottom: 2%;
   border-radius: 7px;
@@ -276,9 +307,8 @@ main {
   border-top-left-radius: 7px;
   border-top-right-radius: 7px;
   width: 100%;
-  
-
 }
+
 .informacao-item{
   display: flex;
   justify-content: center;
@@ -295,397 +325,270 @@ main {
   font-weight: bold;
 }
 
+/* --------- Responsividade --------- */
 
+/* Estilos para telas pequenas (até 600px) */
 @media only screen and (max-width: 600px) {
-
   .titulo-transdisp {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
     font-size: 2rem;
-    margin: 0;
   }
   
   .btn-menu {
-    background: none;
-    color: white;
-    font-weight: bold;
     font-size: 1.5rem;
-    
   }
 
-  .login-buttons {
-    display: flex;
-    gap: 2%;
-    justify-content: center;
-    margin-bottom: 4%;
-  
-  }
-  
-  .login-button a {
-    font-weight: bold;
+  .login-button {
     font-size: 1rem;
-    border: none;
-    background-color: #3B59B8;
-    color: white;
     padding: 8px;
-    cursor: pointer;
-    border-radius: 4px;
   }
 
   .form-busca button[type="submit"] {
-    background-color: #3B59B8; 
-    display: flex;
     margin-left: 37%;
-    padding: 3%;
     font-size: 1.2rem;
-    padding-left: 10%;
-    padding-right: 10%;
   }
 
   button[type="submit"] {
-    margin-top: 10px;
-    font-weight: bold;
-    border-radius: 5px;
     padding: 5%;
-    background-color: #5270FF;
-    color: white;
-    display: block;
-    max-width: 100%;
-    margin: 10px auto;
     font-size: 1rem;
   }
 
   .formulario input[type="text"],
   .formulario input[type="password"],
   .formulario input[type="email"]  {
-    border-radius: 4px;
-    border: none;
     padding: 1.5%;
-    width: 100%;
-    border-radius: 8px;
     font-size: 1.2rem; 
   }
 
   #btn-cadastro-aluno,
   #btn-cadastro-motorista {
     font-size: 1.5rem;
-    display: flex;
     width: 100%;
   }
 
   .links {
-    display: flex;
-    justify-content: center;
-    margin-top: 10px;
-    gap: 2px;
     font-size: 1.2rem;
   }
-
+  
+  .botoes-form {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .btn-voltar {
+    width: 100%;
+  }
 }
 
-@media only screen and (min-width: 600px) {
-  h1{
-    font-size:2rem;
-   }
+/* Estilos para tablets (601px até 991px) */
+@media only screen and (min-width: 601px) and (max-width: 991px) {
+  h1 {
+    font-size: 2rem;
+  }
     
-
   .titulo-transdisp {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
     font-size: 2.3rem;
-    margin: 0;
   }
   
   .btn-menu {
-    background: none;
-    color: white;
-    font-weight: bold;
     font-size: 2rem;
-    
   }
 
-  .login-buttons {
-    display: flex;
-    gap: 2%;
-    justify-content: center;
-    margin-bottom: 4%;
-  
-  }
-  
-  .login-button a {
-    font-weight: bold;
+  .login-button {
     font-size: 1rem;
-    border: none;
-    background-color: #3B59B8;
-    color: white;
     padding: 10px;
-    cursor: pointer;
-    border-radius: 4px;
   }
 
-  .input-busca{
+  .input-busca {
     font-size: 1.4rem;
   }
 
   .form-busca button[type="submit"] {
-    background-color: #3B59B8; 
-    display: flex;
     margin-left: 39%;
-    padding: 3%;
     font-size: 1.6rem;
-    padding-left: 10%;
-    padding-right: 10%;
   }
 
   button[type="submit"] {
-    margin-top: 10px;
-    font-weight: bold;
-    border-radius: 5px;
     padding: 5%;
-    background-color: #5270FF;
-    color: white;
-    display: block;
-    max-width: 100%;
-    margin: 10px auto;
     font-size: 1.2rem;
   }
 
-  .transporte-disponivel{
-    margin-top: 5%;
-    display: flex;
-    justify-content: center;
+  .transporte-disponivel {
     font-size: 2.5rem;
   }
 
   .formulario {
-    display: block;
-    background-color: rgb(118, 141, 255);
-    width: 100%;
     font-size: 2rem;
-    font-weight: bold;
   }
   
   .formulario input[type="text"],
   .formulario input[type="password"],
-  .formulario input[type="email"]  {
-    border-radius: 4px;
-    border: none;
+  .formulario input[type="email"] {
     padding: 1.5%;
-    width: 100%;
-    border-radius: 8px;
     font-size: 1.5rem; 
   }
-
 
   .formulario .input::placeholder {
-    font-size: 1.5rem; 
-    color: #aaa;     
+    font-size: 1.5rem;
   }
-
 
   #btn-cadastro-aluno,
   #btn-cadastro-motorista {
     font-size: 1.5rem;
-    display: flex;
     width: 100%;
   }
 
   .links {
-    display: flex;
-    justify-content: center;
-    margin-top: 10px;
-    gap: 2px;
     font-size: 1.5rem;
   }
 
-  .lotacao{
-    display: flex;
-    justify-content: center;
-    background-color: #3B59B8; 
-    border-top-left-radius: 7px;
-    border-top-right-radius: 7px;
-    width: 100%;
+  .lotacao {
     font-size: 1.3rem;
-    
-  
   }
 
-  .informacao-item [type="text"]{
-    border-radius: 4px;
-    padding: 10px;
-    width: 80%;
-    background-color: lightgray;
-    border-radius: 8px;
-    border: none;
-    font-weight: bold;
+  .informacao-item [type="text"] {
     font-size: 1.3rem;
   }
-  
 }
 
-@media only screen and (min-width: 992px){
- h1{
-  font-size:2.6rem;
- }
-  
+/* Estilos para desktops e telas grandes (992px ou mais) */
+@media only screen and (min-width: 992px) {
+  h1 {
+    font-size: 2.6rem;
+  }
   
   .titulo-transdisp {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
     font-size: 2.6rem;
-    margin: 0;
   }
   
   .btn-menu {
-    background: none;
-    color: white;
-    font-weight: bold;
     font-size: 2.6rem;
-    
   }
 
-  .login-buttons {
-    display: flex;
-    gap: 2%;
-    justify-content: center;
-    margin-bottom: 4%;
-  
-  }
-  
-  .login-button a {
-    font-weight: bold;
+  .login-button {
     font-size: 1.3rem;
-    border: none;
-    background-color: #3B59B8;
-    color: white;
     padding: 10px;
-    cursor: pointer;
-    border-radius: 4px;
   }
-
 
   .form-busca button[type="submit"] {
-    background-color: #3B59B8; 
-    display: flex;
     margin-left: 43%;
-    padding: 3%;
     font-size: 2rem;
     padding-left: 6%;
     padding-right: 6%;
   }
 
-
-
   button[type="submit"] {
-    margin-top: 10px;
-    font-weight: bold;
-    border-radius: 5px;
     padding: 5%;
-    background-color: #5270FF;
-    color: white;
-    display: block;
-    max-width: 100%;
-    margin: 10px auto;
     font-size: 1.2rem;
   }
 
-  .transporte-disponivel{
-    margin-top: 5%;
-    display: flex;
-    justify-content: center;
+  .transporte-disponivel {
     font-size: 3rem;
   }
 
   .btn-transporte,
-  .btn-chat{
-    display: inline-flex;
+  .btn-chat {
     padding: 3%;
-    font-weight: bold;
-    border-radius: 5px;
     font-size: 1.3rem;
-    margin-top: 3%;
   }
-  
-  
 
   .formulario {
-    display: block;
-    background-color: rgb(118, 141, 255);
-    width: 100%;
     font-size: 2rem;
-    font-weight: bold;
+    max-width: 800px;  /* Reduzido de 1200px para 800px */
+    margin-left: auto;
+    margin-right: auto;
   }
   
   .formulario input[type="text"],
   .formulario input[type="password"],
-  .formulario input[type="email"]  {
-    border-radius: 4px;
-    border: none;
+  .formulario input[type="email"] {
     padding: 1.5%;
-    width: 100%;
-    border-radius: 8px;
-    font-size: 1.5rem; 
+    font-size: 1.5rem;
   }
-
 
   .formulario .input::placeholder {
-    font-size: 1.5rem; 
-    color: #aaa;     
-  }
-
-
-  #btn-cadastro-aluno,
-  #btn-cadastro-motorista {
     font-size: 1.5rem;
-    display: flex;
-    width: 100%;
   }
 
   #btn-cadastro-aluno,
-#btn-cadastro-motorista,
-#btn-login-motorista
- {
-  display: block;            
-  margin: 0 auto;            
-  background-color: #5270FF;
-  color: #fff;               
-  padding: 3% 6%;       
-  font-size: 1.8rem;          
-  border: none;             
-  border-radius: 5px;        
-  cursor: pointer;           
-  justify-content: center;
-}
+  #btn-cadastro-motorista,
+  #btn-login-motorista {
+    font-size: 1.8rem;
+    padding: 3% 6%;
+  }
 
   .links {
-    display: flex;
-    justify-content: center;
-    margin-top: 10px;
-    gap: 2px;
     font-size: 1.8rem;
   }
-  .lotacao{
-    display: flex;
-    justify-content: center;
-    background-color: #3B59B8; 
-    border-top-left-radius: 7px;
-    border-top-right-radius: 7px;
-    width: 100%;
+  
+  .lotacao {
     font-size: 1.5rem;
-    
   }
 
-  .informacao-item [type="text"]{
-    border-radius: 4px;
-    padding: 10px;
-    width: 80%;
-    background-color: lightgray;
-    border-radius: 8px;
-    border: none;
-    font-weight: bold;
+  .informacao-item [type="text"] {
     font-size: 1.5rem;
   }
+  
+  /* Melhorias para telas extra grandes */
+  @media only screen and (min-width: 1400px) {
+    main {
+      max-width: 1200px;  /* Reduzido de 1400px para 1200px */
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    .form-busca {
+      max-width: 600px;  /* Reduzido de 800px para 600px */
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    .form-busca input[type="text"] {
+      width: 60%;
+      margin-left: 20%;
+    }
+    
+    .transporte-item {
+      max-width: 800px;  /* Reduzido de 1000px para 800px */
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+}
+
+/* Estilos para mensagens de erro */
+.erro {
+  color: #e74c3c;
+  font-size: 0.8rem;
+  display: block;
+  margin-top: 5px;
+  font-weight: 500;
+}
+
+/* Destacar campos de formulário inválidos */
+input:invalid {
+  border-color: #e74c3c;
+}
+
+/* Estilo para tipos de usuário na tabela */
+.tipo-usuario {
+  font-size: 0.8rem;
+  padding: 3px 6px;
+  border-radius: 4px;
+  display: inline-block;
+  font-weight: 500;
+}
+
+.tipo-aluno {
+  background-color: #3498db;
+  color: white;
+}
+
+.tipo-motorista {
+  background-color: #2ecc71;
+  color: white;
+}
+
+.tipo-geral {
+  background-color: #95a5a6;
+  color: white;
 }
