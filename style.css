@@ -358,7 +358,7 @@ main {
   color: #666;
 }
 
-.btn-contratar {
+.btn-contactar {
   background-color: #3498db;
   color: white;
   border: none;
@@ -369,7 +369,7 @@ main {
   transition: background-color 0.2s;
 }
 
-.btn-contratar:hover {
+.btn-contactar:hover {
   background-color: #2980b9;
 }
 

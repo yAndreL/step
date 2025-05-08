@@ -97,13 +97,13 @@ document.addEventListener('DOMContentLoaded', function() {
           <p class="preco">R$ ${transporte.preco.toFixed(2)}/mês</p>
           <p class="horarios"><strong>Horários:</strong> ${horariosFormatados}</p>
           <p class="locais"><strong>Locais atendidos:</strong> ${locaisFormatados}</p>
-          <button class="btn-contratar" data-id="${transporte.id}">Contratar</button>
+          <button class="btn-contactar" data-id="${transporte.id}">Contactar</button>
         </div>
       `;
       
       transportesList.appendChild(transporteCard);
       
-      const btnContratar = transporteCard.querySelector('.btn-contratar');
+      const btnContratar = transporteCard.querySelector('.btn-contactar');
       btnContratar.addEventListener('click', function() {
         const transporteId = this.getAttribute('data-id');
         window.location.href = `tela_info_transporte_1.html?id=${transporteId}`;
