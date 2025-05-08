@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', function() {
         avaliacao: 4.8,
         preco: 250.00,
         horarios: ['7:00', '12:00', '18:00'],
-        locais: ['Zona Norte', 'Centro', 'Barra da Tijuca'],
+        locais: ['Vila dos Técnicos', 'Centro', 'Quitandinha'],
         imagem: 'LogoSTEP.png'
       },
       {
