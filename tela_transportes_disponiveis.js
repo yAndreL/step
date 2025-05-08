@@ -1,31 +1,43 @@
 document.addEventListener('DOMContentLoaded', function() {
-  const usuarioLogado = JSON.parse(localStorage.getItem('usuarioLogado')) || null;
+  const alunoLogado = JSON.parse(localStorage.getItem('alunoLogado'));
+  const motoristaLogado = JSON.parse(localStorage.getItem('motoristaLogado'));
+  const usuarioLogado = alunoLogado || motoristaLogado;
   
-  if (!usuarioLogado) {
-    window.location.href = 'login_aluno.html';
-    return;
+  const loginButtons = document.querySelector('.login-buttons');
+  const usuarioInfo = document.querySelector('.usuario-info');
+  const saudacaoUsuario = document.getElementById('saudacao-usuario');
+  const btnSair = document.getElementById('btn-sair');
+  
+
+  if (usuarioLogado) {
+
+    if (loginButtons) loginButtons.style.display = 'none';
+    
+
+    if (usuarioInfo) usuarioInfo.style.display = 'flex';
+    
+  
+    if (saudacaoUsuario) {
+      saudacaoUsuario.textContent = `Olá, ${usuarioLogado.nome}`;
+    }
+    
+
+    if (btnSair) {
+      btnSair.addEventListener('click', function() {
+        localStorage.removeItem('alunoLogado');
+        localStorage.removeItem('motoristaLogado');
+        window.location.reload();
+      });
+    }
   }
   
-  const nomeUsuarioElement = document.getElementById('nome-usuario');
-  if (nomeUsuarioElement && usuarioLogado.nome) {
-    nomeUsuarioElement.textContent = usuarioLogado.nome;
-  }
+
+  const transportesList = document.querySelector('.transporte-item');
   
-  const logoutButton = document.getElementById('logout');
-  if (logoutButton) {
-    logoutButton.addEventListener('click', function() {
-      localStorage.removeItem('usuarioLogado');
-      if (usuarioLogado.tipo === 'aluno') {
-        window.location.href = 'login_aluno.html';
-      } else {
-        window.location.href = 'login_motorista.html';
-      }
-    });
-  }
-  
-  const transportesContainer = document.getElementById('transportes-container');
-  
-  if (transportesContainer) {
+  if (transportesList) {
+    
+    transportesList.innerHTML = '';
+    
     const transportes = [
       {
         id: 1,
@@ -42,7 +54,7 @@ document.addEventListener('DOMContentLoaded', function() {
         avaliacao: 4.5,
         preco: 220.00,
         horarios: ['6:30', '12:30', '17:30'],
-        locais: ['Zona Sul', 'Centro', 'Tijuca'],
+        locais: ['Quitandinha', 'Serenata', 'Garapa'],
         imagem: 'LogoSTEP.png'
       },
       {
@@ -51,7 +63,7 @@ document.addEventListener('DOMContentLoaded', function() {
         avaliacao: 4.7,
         preco: 280.00,
         horarios: ['7:15', '12:15', '18:15'],
-        locais: ['Recreio', 'Barra da Tijuca', 'Jacarepaguá'],
+        locais: ['Alvorada', 'Vale Verde', 'Bromélias'],
         imagem: 'LogoSTEP.png'
       },
       {
@@ -60,7 +72,7 @@ document.addEventListener('DOMContentLoaded', function() {
         avaliacao: 4.6,
         preco: 230.00,
         horarios: ['6:45', '12:45', '17:45'],
-        locais: ['Méier', 'Tijuca', 'Centro'],
+        locais: ['Eldorado', 'Quitandinha', 'Santa Maria'],
         imagem: 'LogoSTEP.png'
       }
     ];
@@ -89,7 +101,7 @@ document.addEventListener('DOMContentLoaded', function() {
         </div>
       `;
       
-      transportesContainer.appendChild(transporteCard);
+      transportesList.appendChild(transporteCard);
       
       const btnContratar = transporteCard.querySelector('.btn-contratar');
       btnContratar.addEventListener('click', function() {

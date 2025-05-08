@@ -4,24 +4,23 @@ document.addEventListener('DOMContentLoaded', function() {
     form.addEventListener('submit', function(e) {
         e.preventDefault();
         
-        const email = document.getElementById('email').value.trim();
+        const cnpj = document.getElementById('cnpj').value.trim();
         const senha = document.getElementById('senha').value;
         
-        if (!email || !senha) {
+        if (!cnpj || !senha) {
             alert('Por favor, preencha todos os campos!');
             return;
         }
         
         const motoristas = JSON.parse(localStorage.getItem('dbmotoristas')) || [];
         
-        const motoristaEncontrado = motoristas.find(motorista => motorista.email === email && motorista.senha === senha);
+        const motoristaEncontrado = motoristas.find(motorista => motorista.cnpj === cnpj && motorista.senha === senha);
         
         if (motoristaEncontrado) {
-            alert('Login realizado com sucesso!');
             localStorage.setItem('motoristaLogado', JSON.stringify(motoristaEncontrado));
-            window.location.href = 'crud.html';
+            window.location.href = 'tela_transportes_disponiveis.html';
         } else {
-            alert('Email ou senha incorretos!');
+            alert('CNPJ ou senha incorretos!');
         }
     });
 });

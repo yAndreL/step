@@ -292,6 +292,87 @@ main {
   justify-content: space-between;
 }
 
+/* Estilos para os cartões de transporte */
+.transporte-card {
+  display: flex;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  overflow: hidden;
+  transition: transform 0.2s;
+}
+
+.transporte-card:hover {
+  transform: translateY(-5px);
+}
+
+.transporte-imagem {
+  width: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f0f8ff;
+  padding: 10px;
+}
+
+.transporte-imagem img {
+  max-width: 100%;
+  max-height: 80px;
+}
+
+.transporte-info {
+  padding: 15px;
+  flex: 1;
+}
+
+.transporte-info h3 {
+  margin-top: 0;
+  color: #333;
+  font-size: 18px;
+}
+
+.avaliacao {
+  color: #f39c12;
+  margin: 5px 0;
+}
+
+.stars {
+  letter-spacing: 2px;
+}
+
+.rating {
+  color: #666;
+  margin-left: 5px;
+}
+
+.preco {
+  font-weight: bold;
+  color: #2ecc71;
+  margin: 5px 0;
+}
+
+.horarios, .locais {
+  margin: 5px 0;
+  font-size: 14px;
+  color: #666;
+}
+
+.btn-contratar {
+  background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background-color 0.2s;
+}
+
+.btn-contratar:hover {
+  background-color: #2980b9;
+}
+
 /* --------- Tela Info Transporte  --------- */
 
 .informacoes{
@@ -325,9 +406,41 @@ main {
   font-weight: bold;
 }
 
+/* --------- Estilos para a área de usuário --------- */
+
+.usuario-info {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  right: 20px;
+  top: 15px;
+  color: white;
+  font-size: 1rem;
+}
+
+#saudacao-usuario {
+  margin-right: 15px;
+  font-weight: 500;
+}
+
+.btn-sair {
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.btn-sair:hover {
+  background-color: #c0392b;
+}
+
 /* --------- Responsividade --------- */
 
-/* Estilos para telas pequenas (até 600px) */
+
 @media only screen and (max-width: 600px) {
   .titulo-transdisp {
     font-size: 2rem;
@@ -379,7 +492,7 @@ main {
   }
 }
 
-/* Estilos para tablets (601px até 991px) */
+
 @media only screen and (min-width: 601px) and (max-width: 991px) {
   h1 {
     font-size: 2rem;
@@ -450,7 +563,7 @@ main {
   }
 }
 
-/* Estilos para desktops e telas grandes (992px ou mais) */
+
 @media only screen and (min-width: 992px) {
   h1 {
     font-size: 2.6rem;
@@ -493,7 +606,7 @@ main {
 
   .formulario {
     font-size: 2rem;
-    max-width: 800px;  /* Reduzido de 1200px para 800px */
+    max-width: 800px;  
     margin-left: auto;
     margin-right: auto;
   }
@@ -531,13 +644,13 @@ main {
   /* Melhorias para telas extra grandes */
   @media only screen and (min-width: 1400px) {
     main {
-      max-width: 1200px;  /* Reduzido de 1400px para 1200px */
+      max-width: 1200px;  
       margin-left: auto;
       margin-right: auto;
     }
     
     .form-busca {
-      max-width: 600px;  /* Reduzido de 800px para 600px */
+      max-width: 600px;  
       margin-left: auto;
       margin-right: auto;
     }
@@ -548,14 +661,14 @@ main {
     }
     
     .transporte-item {
-      max-width: 800px;  /* Reduzido de 1000px para 800px */
+      max-width: 800px; 
       margin-left: auto;
       margin-right: auto;
     }
   }
 }
 
-/* Estilos para mensagens de erro */
+
 .erro {
   color: #e74c3c;
   font-size: 0.8rem;
@@ -564,12 +677,12 @@ main {
   font-weight: 500;
 }
 
-/* Destacar campos de formulário inválidos */
+
 input:invalid {
   border-color: #e74c3c;
 }
 
-/* Estilo para tipos de usuário na tabela */
+
 .tipo-usuario {
   font-size: 0.8rem;
   padding: 3px 6px;

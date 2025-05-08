@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-  const form = document.querySelector('.formulario');
+  const form = document.getElementById('formCadastroMotorista');
   const inputCNPJ = document.getElementById('cnpj');
   const inputTelefone = document.getElementById('telefone');
   
@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const telefone = inputTelefone.value.trim();
     const cnpj = inputCNPJ.value.trim();
     const senha = document.getElementById('senha').value;
-    const confirmaSenha = document.getElementById('confirma-senha').value;
+    const confirmaSenha = document.getElementById('confirmar-senha').value;
     
     if (!validarCampos(nome, email, telefone, cnpj, senha, confirmaSenha)) {
       return;
