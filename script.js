@@ -17,15 +17,13 @@ const getItensBD = (tipo = "usuarios") => JSON.parse(localStorage.getItem(`db${t
 const setItensBD = (itens, tipo = "usuarios") => localStorage.setItem(`db${tipo}`, JSON.stringify(itens));
 
 function combinarUsuarios() {
-    const usuarios = getItensBD("usuarios");
     const alunos = getItensBD("alunos");
     const motoristas = getItensBD("motoristas");
     
-    const usuariosComTipo = usuarios.map(u => ({...u, tipo: "Geral", documento: u.documento || ""}));
     const alunosComTipo = alunos.map(a => ({...a, tipo: "Aluno", documento: a.cpf || ""}));
     const motoristasComTipo = motoristas.map(m => ({...m, tipo: "Motorista", documento: m.cnpj || ""}));
     
-    return [...usuariosComTipo, ...alunosComTipo, ...motoristasComTipo];
+    return [...alunosComTipo, ...motoristasComTipo];
 }
 
 function carregaItens(){
@@ -67,7 +65,7 @@ function deleteItem(index){
         const item = itens[index];
         const tipo = item.tipo.toLowerCase();
         
-        const listaEspecifica = getItensBD(tipo === "geral" ? "usuarios" : `${tipo}s`);
+        const listaEspecifica = getItensBD(`${tipo}s`);
         
         const itemIndex = listaEspecifica.findIndex(
             i => i.nome === item.nome && i.email === item.email
@@ -75,7 +73,7 @@ function deleteItem(index){
         
         if (itemIndex !== -1) {
             listaEspecifica.splice(itemIndex, 1);
-            setItensBD(listaEspecifica, tipo === "geral" ? "usuarios" : `${tipo}s`);
+            setItensBD(listaEspecifica, `${tipo}s`);
         }
         
         itens.splice(index, 1);
@@ -90,9 +88,6 @@ sTipo.addEventListener('change', function() {
     } else if (this.value === 'Motorista') {
         sDocumentoLabel.textContent = 'CNPJ';
         sDocumento.placeholder = 'Digite o CNPJ';
-    } else {
-        sDocumentoLabel.textContent = 'CPF/CNPJ';
-        sDocumento.placeholder = 'Digite o documento (opcional)';
     }
 });
 
@@ -111,28 +106,23 @@ function openModal(edit = false, index = 0){
         sSenha.value = itens[index].senha;
         sTipo.value = itens[index].tipo;
         sDocumento.value = itens[index].documento;
-        
-        if (itens[index].tipo === 'Aluno') {
+          if (itens[index].tipo === 'Aluno') {
             sDocumentoLabel.textContent = 'CPF';
             sDocumento.placeholder = 'Digite o CPF';
         } else if (itens[index].tipo === 'Motorista') {
             sDocumentoLabel.textContent = 'CNPJ';
             sDocumento.placeholder = 'Digite o CNPJ';
-        } else {
-            sDocumentoLabel.textContent = 'CPF/CNPJ';
-            sDocumento.placeholder = 'Digite o documento (opcional)';
         }
         
-        id = index;
-    } else{
+        id = index;    } else{
         sNome.value = '';
         sEmail.value = '';
         sTelefone.value = '';
         sSenha.value = '';
         sDocumento.value = '';
-        sTipo.value = 'Geral';
-        sDocumentoLabel.textContent = 'CPF/CNPJ';
-        sDocumento.placeholder = 'Digite o documento (opcional)';
+        sTipo.value = 'Aluno';
+        sDocumentoLabel.textContent = 'CPF';
+        sDocumento.placeholder = 'Digite o CPF';
     }
 }
 
@@ -150,19 +140,18 @@ btnSalvar.onclick = (e) => {
         const item = itens[id];
         const tipoAntigo = item.tipo.toLowerCase();
         const tipoNovo = tipoUsuario.toLowerCase();
-        
-        if (tipoAntigo !== tipoNovo) {
-            const listaAntiga = getItensBD(tipoAntigo === "geral" ? "usuarios" : `${tipoAntigo}s`);
+          if (tipoAntigo !== tipoNovo) {
+            const listaAntiga = getItensBD(`${tipoAntigo}s`);
             const indexAntigo = listaAntiga.findIndex(
                 i => i.nome === item.nome && i.email === item.email
             );
             
             if (indexAntigo !== -1) {
                 listaAntiga.splice(indexAntigo, 1);
-                setItensBD(listaAntiga, tipoAntigo === "geral" ? "usuarios" : `${tipoAntigo}s`);
+                setItensBD(listaAntiga, `${tipoAntigo}s`);
             }
             
-            const listaNova = getItensBD(tipoNovo === "geral" ? "usuarios" : `${tipoNovo}s`);
+            const listaNova = getItensBD(`${tipoNovo}s`);
             const novoItem = {
                 nome: sNome.value,
                 email: sEmail.value,
@@ -174,14 +163,11 @@ btnSalvar.onclick = (e) => {
                 novoItem.cpf = documentoValor;
             } else if (tipoNovo === "motorista") {
                 novoItem.cnpj = documentoValor;
-            } else {
-                novoItem.documento = documentoValor;
             }
-            
-            listaNova.push(novoItem);
-            setItensBD(listaNova, tipoNovo === "geral" ? "usuarios" : `${tipoNovo}s`);
+              listaNova.push(novoItem);
+            setItensBD(listaNova, `${tipoNovo}s`);
         } else {
-            const listaEspecifica = getItensBD(tipoNovo === "geral" ? "usuarios" : `${tipoNovo}s`);
+            const listaEspecifica = getItensBD(`${tipoNovo}s`);
             
             const itemIndex = listaEspecifica.findIndex(
                 i => i.nome === item.nome && i.email === item.email
@@ -197,11 +183,9 @@ btnSalvar.onclick = (e) => {
                     listaEspecifica[itemIndex].cpf = documentoValor;
                 } else if (tipoNovo === "motorista") {
                     listaEspecifica[itemIndex].cnpj = documentoValor;
-                } else {
-                    listaEspecifica[itemIndex].documento = documentoValor;
                 }
                 
-                setItensBD(listaEspecifica, tipoNovo === "geral" ? "usuarios" : `${tipoNovo}s`);
+                setItensBD(listaEspecifica, `${tipoNovo}s`);
             }
         }
         
@@ -211,8 +195,7 @@ btnSalvar.onclick = (e) => {
         itens[id].senha = sSenha.value;
         itens[id].tipo = tipoUsuario;
         itens[id].documento = documentoValor;
-    } else {
-        const tipoNovoUsuario = tipoUsuario.toLowerCase();
+    } else {        const tipoNovoUsuario = tipoUsuario.toLowerCase();
         const novoItem = {
             nome: sNome.value,
             email: sEmail.value,
@@ -224,13 +207,11 @@ btnSalvar.onclick = (e) => {
             novoItem.cpf = documentoValor;
         } else if (tipoNovoUsuario === "motorista") {
             novoItem.cnpj = documentoValor;
-        } else {
-            novoItem.documento = documentoValor;
         }
         
-        const listaEspecifica = getItensBD(tipoNovoUsuario === "geral" ? "usuarios" : `${tipoNovoUsuario}s`);
+        const listaEspecifica = getItensBD(`${tipoNovoUsuario}s`);
         listaEspecifica.push(novoItem);
-        setItensBD(listaEspecifica, tipoNovoUsuario === "geral" ? "usuarios" : `${tipoNovoUsuario}s`);
+        setItensBD(listaEspecifica, `${tipoNovoUsuario}s`);
         
         itens.push({
             nome: sNome.value,
@@ -298,7 +279,7 @@ btnIncluir.onclick = () => {
 }
 
 window.addEventListener('storage', function(e) {
-    if (e.key === 'dbalunos' || e.key === 'dbmotoristas' || e.key === 'dbusuarios') {
+    if (e.key === 'dbalunos' || e.key === 'dbmotoristas') {
         carregaItens();
     }
 });
